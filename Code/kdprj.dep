@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>0</fileVersion>
+  <configuration>
+    <name>Debug</name>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\kdprj.dbg</name>
+      <inputs>
+        <name>$TOOLKIT_DIR$\src\template\cfgm128.xcl</name>
+        <name>$TOOLKIT_DIR$\src\template\cfg3s.xcl</name>
+        <name>$PROJ_DIR$\Debug\Obj\kedahm.r90</name>
+        <name>$TOOLKIT_DIR$\lib\clib\cl3s-ec.r90</name>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\kedahm.c</name>
+      <outputs>
+        <name>$PROJ_DIR$\Debug\Obj\kedahm.r90</name>
+        <name>$PROJ_DIR$\Debug\List\kedahm.lst</name>
+      </outputs>
+      <inputs>
+        <name>$PROJ_DIR$\kedahm.h</name>
+        <name>$TOOLKIT_DIR$\INC\iom128.h</name>
+        <name>$TOOLKIT_DIR$\INC\iomacro.h</name>
+        <name>$TOOLKIT_DIR$\INC\inavr.h</name>
+        <name>$TOOLKIT_DIR$\INC\CLIB\stdio.h</name>
+        <name>$TOOLKIT_DIR$\INC\CLIB\stdarg.h</name>
+        <name>$TOOLKIT_DIR$\INC\CLIB\sysmac.h</name>
+        <name>$TOOLKIT_DIR$\INC\CLIB\ctype.h</name>
+        <name>$TOOLKIT_DIR$\INC\CLIB\string.h</name>
+        <name>$PROJ_DIR$\bitbyt.h</name>
+        <name>$PROJ_DIR$\portdefines.h</name>
+        <name>$PROJ_DIR$\madelay.h</name>
+        <name>$PROJ_DIR$\sound.h</name>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <file>
+      <name>$PROJ_DIR$\Release\Exe\kdprj.hex</name>
+      <inputs>
+        <name>$TOOLKIT_DIR$\src\template\cfgm128.xcl</name>
+        <name>$TOOLKIT_DIR$\src\template\cfg3s.xcl</name>
+        <name>$PROJ_DIR$\Release\Obj\kedahm.r90</name>
+        <name>$TOOLKIT_DIR$\lib\clib\cl3s-ec.r90</name>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\kedahm.c</name>
+      <outputs>
+        <name>$PROJ_DIR$\Release\Obj\kedahm.r90</name>
+        <name>$PROJ_DIR$\Release\List\kedahm.lst</name>
+      </outputs>
+      <inputs>
+        <name>$PROJ_DIR$\kedahm.h</name>
+        <name>$TOOLKIT_DIR$\INC\iom128.h</name>
+        <name>$TOOLKIT_DIR$\INC\iomacro.h</name>
+        <name>$TOOLKIT_DIR$\INC\inavr.h</name>
+        <name>$TOOLKIT_DIR$\INC\CLIB\stdio.h</name>
+        <name>$TOOLKIT_DIR$\INC\CLIB\stdarg.h</name>
+        <name>$TOOLKIT_DIR$\INC\CLIB\sysmac.h</name>
+        <name>$TOOLKIT_DIR$\INC\CLIB\ctype.h</name>
+        <name>$TOOLKIT_DIR$\INC\CLIB\string.h</name>
+        <name>$PROJ_DIR$\bitbyt.h</name>
+        <name>$PROJ_DIR$\portdefines.h</name>
+        <name>$PROJ_DIR$\madelay.h</name>
+        <name>$PROJ_DIR$\eeprom.h</name>
+        <name>$PROJ_DIR$\ds1990a.h</name>
+      </inputs>
+    </file>
+  </configuration>
+</project>
+
+
