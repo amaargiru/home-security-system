@@ -8,10 +8,7 @@
     <Static>
       <Workspace>
         <ColumnWidths>
-          
-          
-          
-          
+
         <Column0>202</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
     <Build><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>555</ColumnWidth1><ColumnWidth2>148</ColumnWidth2><ColumnWidth3>37</ColumnWidth3></Build></Static>
@@ -31,19 +28,10 @@
         
       <SelectedTab>0</SelectedTab></Wnd0><Wnd1><Tabs><Tab><Identity>TabID-25299-26809</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd1></Windows>
     <Editor>
-      
-      
-      
-      
+
     <Pane><Tab><Factory>TextEditor</Factory><Filename>K:\DataLevel2(ReserveWorx)\03 - kedah\KEDAH\fw116\kedahm.c</Filename><XPos>0</XPos><YPos>21</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>K:\DataLevel2(ReserveWorx)\03 - kedah\KEDAH\fw116\kedahm.h</Filename><XPos>0</XPos><YPos>2505</YPos><SelStart>98803</SelStart><SelEnd>98803</SelEnd></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
-      
-      
-      
-      
-      
+ 
     <Top><Row0><Sizes><Toolbar-008ee4f0><key>iaridepm1</key></Toolbar-008ee4f0></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>248</Bottom><Right>293</Right><x>-2</x><y>-2</y><xscreen>155</xscreen><yscreen>138</yscreen><sizeHorzCX>193750</sizeHorzCX><sizeHorzCY>281632</sizeHorzCY><sizeVertCX>368750</sizeVertCX><sizeVertCY>510204</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>198</Bottom><Right>802</Right><x>-2</x><y>-2</y><xscreen>804</xscreen><yscreen>200</yscreen><sizeHorzCX>1004999</sizeHorzCX><sizeHorzCY>408163</sizeHorzCY><sizeVertCX>250000</sizeVertCX><sizeVertCY>408163</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
-
-

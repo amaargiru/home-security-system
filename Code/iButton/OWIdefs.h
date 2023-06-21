@@ -10,7 +10,7 @@
 * \li Supported devices:  All AVRs.
 *
 * \li Application Note:   AVR318 - Dallas 1-Wire(R) master.
-*                         
+*
 *
 * \li Description:        Common definitions used for all implementations.
 *
@@ -22,7 +22,6 @@
 #define _OWI_DEFS_H_
 
 #include <ioavr.h>
-
 
 /****************************************************************************
  ROM commands

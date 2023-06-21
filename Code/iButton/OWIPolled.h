@@ -10,7 +10,7 @@
 * \li Supported devices:  All AVRs.
 *
 * \li Application Note:   AVR318 - Dallas 1-Wire(R) master.
-*                         
+*
 *
 * \li Description:        Defines used in the polled 1-Wire(R) driver.
 *
@@ -24,7 +24,6 @@
 #include "OWIdefs.h"
 #include "OWIDeviceSpecific.h"
 
-
 /*****************************************************************************
  User defines
 *****************************************************************************/
@@ -36,23 +35,21 @@
 /*****************************************************************************
  The following defines only has an effect on the software only driver.
 *****************************************************************************/
-/*! \brief  CPU clock frequency. 
- *  
+/*! \brief  CPU clock frequency.
+ *
  *  This define is used to calculate delays when the software only driver
  *  is used. The CPU frequency must be at least 2.170 MHz to be able to
  *  generate the shortest delays.
  */
 #define     CPU_FREQUENCY   8.000
 
-
-/*! \brief  Use internal pull-up resistor on 1-Wire buses.
- *
- *  If this symbol is defined, the internal pull-up resister on the GPIO pins 
- *  of the AVR will be used to generate the necessary pull-up on the bus. If 
- *  an external pull-up resistor is used, uncomment this define.
- */
+ /*! \brief  Use internal pull-up resistor on 1-Wire buses.
+  *
+  *  If this symbol is defined, the internal pull-up resister on the GPIO pins
+  *  of the AVR will be used to generate the necessary pull-up on the bus. If
+  *  an external pull-up resistor is used, uncomment this define.
+  */
 #define     OWI_USE_INTERNAL_PULLUP
-
 
 // Port configuration registers for 1-Wire buses.
 // Make sure that all three registers belong to the same port.
@@ -79,11 +76,8 @@
 #define     OWI_DELAY_D_STD_MODE    ((10  * CPU_FREQUENCY) - OWI_DELAY_OFFSET_CYCLES)
 #define     OWI_DELAY_E_STD_MODE    ((9   * CPU_FREQUENCY) - OWI_DELAY_OFFSET_CYCLES)
 #define     OWI_DELAY_F_STD_MODE    ((55  * CPU_FREQUENCY) - OWI_DELAY_OFFSET_CYCLES)
-//#define     OWI_DELAY_G_STD_MODE  ((0   * CPU_FREQUENCY) - OWI_DELAY_OFFSET_CYCLES)
 #define     OWI_DELAY_H_STD_MODE    ((480 * CPU_FREQUENCY) - OWI_DELAY_OFFSET_CYCLES)
 #define     OWI_DELAY_I_STD_MODE    ((70  * CPU_FREQUENCY) - OWI_DELAY_OFFSET_CYCLES)
 #define     OWI_DELAY_J_STD_MODE    ((410 * CPU_FREQUENCY) - OWI_DELAY_OFFSET_CYCLES)
-
-
 
 #endif

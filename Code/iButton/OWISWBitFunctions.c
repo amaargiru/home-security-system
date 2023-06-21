@@ -10,9 +10,9 @@
 * \li Supported devices:  All AVRs.
 *
 * \li Application Note:   AVR318 - Dallas 1-Wire(R) master.
-*                         
 *
-* \li Description:        Polled software only implementation of the basic 
+*
+* \li Description:        Polled software only implementation of the basic
 *                         bit-level signalling in the 1-Wire(R) protocol.
 *
 *                         $Revision: 1.7 $
@@ -28,9 +28,8 @@
 
 #include "OWIBitFunctions.h"
 
-
 /*! \brief Initialization of the one wire bus(es). (Software only driver)
- *  
+ *
  *  This function initializes the 1-Wire bus(es) by releasing it and
  *  waiting until any presence sinals are finished.
  *
@@ -45,7 +44,6 @@ void OWI_Init(unsigned char pins)
     __delay_cycles(OWI_DELAY_H_STD_MODE);
 }
 
-
 /*! \brief  Write a '1' bit to the bus(es). (Software only driver)
  *
  *  Generates the waveform for transmission of a '1' bit on the 1-Wire
@@ -56,23 +54,22 @@ void OWI_Init(unsigned char pins)
 void OWI_WriteBit1(unsigned char pins)
 {
     unsigned char intState;
-    
+
     // Disable interrupts.
     intState = __save_interrupt();
     __disable_interrupt();
-    
+
     // Drive bus low and delay.
     OWI_PULL_BUS_LOW(pins);
     __delay_cycles(OWI_DELAY_A_STD_MODE);
-    
+
     // Release bus and delay.
     OWI_RELEASE_BUS(pins);
     __delay_cycles(OWI_DELAY_B_STD_MODE);
-    
+
     // Restore interrupts.
     __restore_interrupt(intState);
 }
-
 
 /*! \brief  Write a '0' to the bus(es). (Software only driver)
  *
@@ -84,23 +81,22 @@ void OWI_WriteBit1(unsigned char pins)
 void OWI_WriteBit0(unsigned char pins)
 {
     unsigned char intState;
-    
+
     // Disable interrupts.
     intState = __save_interrupt();
     __disable_interrupt();
-    
+
     // Drive bus low and delay.
     OWI_PULL_BUS_LOW(pins);
     __delay_cycles(OWI_DELAY_C_STD_MODE);
-    
+
     // Release bus and delay.
     OWI_RELEASE_BUS(pins);
     __delay_cycles(OWI_DELAY_D_STD_MODE);
-    
+
     // Restore interrupts.
     __restore_interrupt(intState);
 }
-
 
 /*! \brief  Read a bit from the bus(es). (Software only driver)
  *
@@ -114,34 +110,33 @@ unsigned char OWI_ReadBit(unsigned char pins)
 {
     unsigned char intState;
     unsigned char bitsRead;
-    
+
     // Disable interrupts.
     intState = __save_interrupt();
     __disable_interrupt();
-    
+
     // Drive bus low and delay.
     OWI_PULL_BUS_LOW(pins);
     __delay_cycles(OWI_DELAY_A_STD_MODE);
-    
+
     // Release bus and delay.
     OWI_RELEASE_BUS(pins);
     __delay_cycles(OWI_DELAY_E_STD_MODE);
-    
+
     // Sample bus and delay.
     bitsRead = OWI_PIN & pins;
     __delay_cycles(OWI_DELAY_F_STD_MODE);
-    
+
     // Restore interrupts.
     __restore_interrupt(intState);
-    
+
     return bitsRead;
 }
-
 
 /*! \brief  Send a Reset signal and listen for Presence signal. (software
  *  only driver)
  *
- *  Generates the waveform for transmission of a Reset pulse on the 
+ *  Generates the waveform for transmission of a Reset pulse on the
  *  1-Wire(R) bus and listens for presence signals.
  *
  *  \param  pins    A bitmask of the buses to send the Reset signal on.
@@ -152,28 +147,27 @@ unsigned char OWI_DetectPresence(unsigned char pins)
 {
     unsigned char intState;
     unsigned char presenceDetected;
-    
+
     // Disable interrupts.
     intState = __save_interrupt();
     __disable_interrupt();
-    
+
     // Drive bus low and delay.
     OWI_PULL_BUS_LOW(pins);
     __delay_cycles(OWI_DELAY_H_STD_MODE);
-    
+
     // Release bus and delay.
     OWI_RELEASE_BUS(pins);
     __delay_cycles(OWI_DELAY_I_STD_MODE);
-    
+
     // Sample bus to detect presence signal and delay.
     presenceDetected = ((~OWI_PIN) & pins);
     __delay_cycles(OWI_DELAY_J_STD_MODE);
-    
+
     // Restore interrupts.
     __restore_interrupt(intState);
-    
+
     return presenceDetected;
 }
-
 
 #endif

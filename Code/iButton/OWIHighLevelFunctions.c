@@ -10,7 +10,7 @@
 * \li Supported devices:  All AVRs.
 *
 * \li Application Note:   AVR318 - Dallas 1-Wire(R) master.
-*                         
+*
 *
 * \li Description:        High level functions for transmission of full bytes
 *                         on the 1-Wire(R) bus and implementations of ROM
@@ -26,21 +26,20 @@
 #include "OWIBitFunctions.h"
 #include "OWIPolled.h"
 
-
 /*! \brief  Sends one byte of data on the 1-Wire(R) bus(es).
- *  
+ *
  *  This function automates the task of sending a complete byte
  *  of data on the 1-Wire bus(es).
  *
  *  \param  data    The data to send on the bus(es).
- *  
+ *
  *  \param  pins    A bitmask of the buses to send the data to.
  */
 void OWI_SendByte(unsigned char data, unsigned char pins)
 {
     unsigned char temp;
     unsigned char i;
-    
+
     // Do once for each bit
     for (i = 0; i < 8; i++)
     {
@@ -60,14 +59,13 @@ void OWI_SendByte(unsigned char data, unsigned char pins)
     }
 }
 
-
 /*! \brief  Receives one byte of data from the 1-Wire(R) bus.
  *
- *  This function automates the task of receiving a complete byte 
+ *  This function automates the task of receiving a complete byte
  *  of data from the 1-Wire bus.
  *
  *  \param  pin     A bitmask of the bus to read from.
- *  
+ *
  *  \return     The byte read from the bus.
  */
 unsigned char OWI_ReceiveByte(unsigned char pin)
@@ -77,7 +75,7 @@ unsigned char OWI_ReceiveByte(unsigned char pin)
 
     // Clear the temporary input variable.
     data = 0x00;
-    
+
     // Do once for each bit
     for (i = 0; i < 8; i++)
     {
@@ -94,7 +92,6 @@ unsigned char OWI_ReceiveByte(unsigned char pin)
     return data;
 }
 
-
 /*! \brief  Sends the SKIP ROM command to the 1-Wire bus(es).
  *
  *  \param  pins    A bitmask of the buses to send the SKIP ROM command to.
@@ -105,20 +102,19 @@ void OWI_SkipRom(unsigned char pins)
     OWI_SendByte(OWI_ROM_SKIP, pins);
 }
 
-
 /*! \brief  Sends the READ ROM command and reads back the ROM id.
  *
  *  \param  romValue    A pointer where the id will be placed.
  *
  *  \param  pin     A bitmask of the bus to read from.
  */
-void OWI_ReadRom(unsigned char * romValue, unsigned char pin)
+void OWI_ReadRom(unsigned char* romValue, unsigned char pin)
 {
     unsigned char bytesLeft = 8;
 
     // Send the READ ROM command on the bus.
     OWI_SendByte(OWI_ROM_READ, pin);
-    
+
     // Do 8 times.
     while (bytesLeft > 0)
     {
@@ -128,17 +124,16 @@ void OWI_ReadRom(unsigned char * romValue, unsigned char pin)
     }
 }
 
-
 /*! \brief  Sends the MATCH ROM command and the ROM id to match against.
  *
  *  \param  romValue    A pointer to the ID to match against.
  *
  *  \param  pins    A bitmask of the buses to perform the MATCH ROM command on.
  */
-void OWI_MatchRom(unsigned char * romValue, unsigned char pins)
+void OWI_MatchRom(unsigned char* romValue, unsigned char pins)
 {
-    unsigned char bytesLeft = 8;   
-    
+    unsigned char bytesLeft = 8;
+
     // Send the MATCH ROM command.
     OWI_SendByte(OWI_ROM_MATCH, pins);
 
@@ -151,21 +146,20 @@ void OWI_MatchRom(unsigned char * romValue, unsigned char pins)
     }
 }
 
-
-/*! \brief  Sends the SEARCH ROM command and returns 1 id found on the 
+/*! \brief  Sends the SEARCH ROM command and returns 1 id found on the
  *          1-Wire(R) bus.
  *
- *  \param  bitPattern      A pointer to an 8 byte char array where the 
- *                          discovered identifier will be placed. When 
- *                          searching for several slaves, a copy of the 
- *                          last found identifier should be supplied in 
+ *  \param  bitPattern      A pointer to an 8 byte char array where the
+ *                          discovered identifier will be placed. When
+ *                          searching for several slaves, a copy of the
+ *                          last found identifier should be supplied in
  *                          the array, or the search will fail.
  *
- *  \param  lastDeviation   The bit position where the algorithm made a 
- *                          choice the last time it was run. This argument 
- *                          should be 0 when a search is initiated. Supplying 
- *                          the return argument of this function when calling 
- *                          repeatedly will go through the complete slave 
+ *  \param  lastDeviation   The bit position where the algorithm made a
+ *                          choice the last time it was run. This argument
+ *                          should be 0 when a search is initiated. Supplying
+ *                          the return argument of this function when calling
+ *                          repeatedly will go through the complete slave
  *                          search.
  *
  *  \param  pin             A bit-mask of the bus to perform a ROM search on.
@@ -174,7 +168,7 @@ void OWI_MatchRom(unsigned char * romValue, unsigned char pins)
  *
  *  \note   See main.c for an example of how to utilize this function.
  */
-unsigned char OWI_SearchRom(unsigned char * bitPattern, unsigned char lastDeviation, unsigned char pin)
+unsigned char OWI_SearchRom(unsigned char* bitPattern, unsigned char lastDeviation, unsigned char pin)
 {
     unsigned char currentBit = 1;
     unsigned char newDeviation = 0;
@@ -184,7 +178,7 @@ unsigned char OWI_SearchRom(unsigned char * bitPattern, unsigned char lastDeviat
 
     // Send SEARCH ROM command on the bus.
     OWI_SendByte(OWI_ROM_SEARCH, pin);
-    
+
     // Walk through all 64 bits.
     while (currentBit <= 64)
     {
@@ -228,18 +222,18 @@ unsigned char OWI_SearchRom(unsigned char * bitPattern, unsigned char lastDeviat
             }
             // If current bit in bit pattern = 0, then this is
             // out new deviation.
-            else if ( !(*bitPattern & bitMask)) 
+            else if (!(*bitPattern & bitMask))
             {
                 newDeviation = currentBit;
             }
             // IF the bit is already 1, do nothing.
             else
             {
-            
+
             }
         }
-                
-        
+
+
         // Send the selected bit to the bus.
         if ((*bitPattern) & bitMask)
         {
@@ -263,4 +257,3 @@ unsigned char OWI_SearchRom(unsigned char * bitPattern, unsigned char lastDeviat
     }
     return newDeviation;
 }
-

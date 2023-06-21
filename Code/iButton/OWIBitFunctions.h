@@ -10,7 +10,7 @@
 * \li Supported devices:  All AVRs.
 *
 * \li Application Note:   AVR318 - Dallas 1-Wire(R) master.
-*                         
+*
 *
 * \li Description:        Header file for OWIBitFunctions.c
 *
@@ -56,33 +56,33 @@ unsigned char OWI_DetectPresence();
 ****************************************************************************/
 /*! \brief Pull 1-Wire bus low.
  *
- *  This macro sets the direction of the 1-Wire pin(s) to output and 
+ *  This macro sets the direction of the 1-Wire pin(s) to output and
  *  pull the line(s) low.
- *  
+ *
  *  \param bitMask  A bitmask of the buses to pull low.
  */
 #define OWI_PULL_BUS_LOW(bitMask) \
             OWI_DDR |= bitMask; \
             OWI_PORT &= ~bitMask;
-            
 
-/*! \def    OWI_RELEASE_BUS(bitMask)
- *
- *  \brief  Release the bus. 
- *
- *  This macro releases the bus and enables the internal pull-up if
- *  it is used.
- *
- *  \param  bitMask A bitmask of the buses to release.
- */
+
+ /*! \def    OWI_RELEASE_BUS(bitMask)
+  *
+  *  \brief  Release the bus.
+  *
+  *  This macro releases the bus and enables the internal pull-up if
+  *  it is used.
+  *
+  *  \param  bitMask A bitmask of the buses to release.
+  */
 #ifdef OWI_USE_INTERNAL_PULLUP            
-// Set 1-Wire pin(s) to input and enable internal pull-up resistor.
+  // Set 1-Wire pin(s) to input and enable internal pull-up resistor.
 #define OWI_RELEASE_BUS(bitMask) \
             OWI_DDR &= ~bitMask; \
             OWI_PORT |= bitMask; 
 
 #else
-// Set 1-Wire pin(s) to input mode. No internal pull-up enabled.
+  // Set 1-Wire pin(s) to input mode. No internal pull-up enabled.
 #define OWI_RELEASE_BUS(bitMask) \
             OWI_DDR &= ~bitMask; \
             OWI_PORT &= ~bitMask;

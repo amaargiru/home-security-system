@@ -7,10 +7,10 @@
 * \li Compiler:           IAR EWAAVR 3.20a
 * \li Support mail:       avr@atmel.com
 *
-* \li Supported devices:  All AVRs with UART or USART module. 
+* \li Supported devices:  All AVRs with UART or USART module.
 *
 * \li Application Note:   AVR318 - Dallas 1-Wire(R) master.
-*                         
+*
 *
 * \li Description:        Device specific defines that expands to correct
 *                         register and bit definition names for the selected
@@ -22,7 +22,6 @@
 
 #ifndef _OWI_DEVICE_SPECIFIC_H_
 #define _OWI_DEVICE_SPECIFIC_H_
-
 
 #if defined(__AT90Tiny2313__) | defined(__ATtiny2313__)
 
@@ -47,7 +46,6 @@
 #define OWI_UART_UDRE_VECT          USART0_UDRE_vect
 
 #endif
-
 
 #if defined(__AT90Mega8__) | defined(__ATmega8__) | \
     defined(__AT90Mega16__) | defined(__ATmega16__) | \
@@ -75,7 +73,6 @@
 #define OWI_UART_UDRE_VECT          USART_UDRE_vect
 
 #endif
-
 
 #if defined(__AT90Mega48__) | defined(__ATmega48__) | \
     defined(__AT90Mega88__) | defined(__ATmega88__) | \
@@ -128,7 +125,6 @@
 
 #endif
 
-
 #if defined(__AT90Mega64__) | defined(__ATmega64__) | \
     defined(__AT90Mega128__) | defined(__ATmega128__)
 
@@ -153,7 +149,5 @@
 #define OWI_UART_UDRE_VECT          USART0_UDRE_vect
 
 #endif
-
-
 
 #endif

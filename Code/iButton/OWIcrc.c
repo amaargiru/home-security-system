@@ -10,9 +10,9 @@
 * \li Supported devices:  All AVRs.
 *
 * \li Application Note:   AVR318 - Dallas 1-Wire(R) master.
-*                         
 *
-* \li Description:        CRC algorithms typically used in a 1-Wire(R) 
+*
+* \li Description:        CRC algorithms typically used in a 1-Wire(R)
 *                         environment.
 *
 *                         $Revision: 1.7 $
@@ -36,7 +36,7 @@
  *
  *  \note   Setting seed to 0 computes the crc8 of the inData.
  *
- *  \note   Constantly passing the return value of this function 
+ *  \note   Constantly passing the return value of this function
  *          As the seed argument computes the CRC8 value of a
  *          longer string of data.
  */
@@ -60,7 +60,7 @@ unsigned char OWI_ComputeCRC8(unsigned char inData, unsigned char seed)
         }
         inData >>= 1;
     }
-    return seed;    
+    return seed;
 }
 
 
@@ -77,7 +77,7 @@ unsigned char OWI_ComputeCRC8(unsigned char inData, unsigned char seed)
  *
  *  \note   Setting seed to 0 computes the crc16 of the inData.
  *
- *  \note   Constantly passing the return value of this function 
+ *  \note   Constantly passing the return value of this function
  *          As the seed argument computes the CRC16 value of a
  *          longer string of data.
  */
@@ -101,12 +101,12 @@ unsigned int OWI_ComputeCRC16(unsigned char inData, unsigned int seed)
         }
         inData >>= 1;
     }
-    return seed;    
+    return seed;
 }
 
 
 /*! \brief  Calculate and check the CRC of a 64 bit ROM identifier.
- *  
+ *
  *  This function computes the CRC8 value of the first 56 bits of a
  *  64 bit identifier. It then checks the calculated value against the
  *  CRC value stored in ROM.
@@ -116,11 +116,11 @@ unsigned int OWI_ComputeCRC16(unsigned char inData, unsigned int seed)
  *  \retval OWI_CRC_OK      The CRC's matched.
  *  \retval OWI_CRC_ERROR   There was a discrepancy between the calculated and the stored CRC.
  */
-unsigned char OWI_CheckRomCRC(unsigned char * romValue)
+unsigned char OWI_CheckRomCRC(unsigned char* romValue)
 {
     unsigned char i;
     unsigned char crc8 = 0;
-    
+
     for (i = 0; i < 7; i++)
     {
         crc8 = OWI_ComputeCRC8(*romValue, crc8);

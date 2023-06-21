@@ -17,24 +17,19 @@ unsigned char DS_bit  = 3;
 #define timeI 70
 #define timeJ 410
 
-//#define     OWI_DELAY_OFFSET_CYCLES    13   //!< Timing delay when pulling bus low and releasing bus.
+#define DS1990A_ID	0x01  // READ ROM command code
+#define W1_ROM_READ	0x33  // READ ROM command code
 
-// Bit timing delays in clock cycles (= us*clock freq in MHz).
-//#define     OWI_DELAY_A_STD_MODE    ((6   * CPU_FREQUENCY) - OWI_DELAY_OFFSET_CYCLES)
+unsigned char uidDS[8];  // The 64 bit identifier
 
-#define DS1990A_ID	0x01	    			// READ ROM command code
-#define W1_ROM_READ	0x33  	  			// READ ROM command code
-
-unsigned char uidDS[8];						// The 64 bit identifier
-
-unsigned char w1_read(void);				//
-void w1_write(unsigned char data);		//
-unsigned char w1_init(void);				//
-unsigned char w1_readBit(void);			//
-void w1_writeBit(unsigned char bit);	//
-unsigned char ds1990a_init(void);		//
-unsigned char testDQ(void);				//
-unsigned char CRC8(unsigned char *ptr, unsigned char count);	//
+unsigned char w1_read(void);
+void w1_write(unsigned char data);
+unsigned char w1_init(void);
+unsigned char w1_readBit(void);
+void w1_writeBit(unsigned char bit);
+unsigned char ds1990a_init(void);
+unsigned char testDQ(void);
+unsigned char CRC8(unsigned char *ptr, unsigned char count);
 
 unsigned char testDQ(void)
 {
