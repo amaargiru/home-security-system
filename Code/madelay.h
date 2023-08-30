@@ -1,7 +1,7 @@
 #ifndef _ma_delay_
 #define _ma_delay_
 
-#define delay_us(c) __delay_cycles(MasterClock/1000000*c)	// Микросекундная задержка
-#define delay_ms(c) __delay_cycles(MasterClock/1000*c)		// Миллисекундная задержка
+#define delay_us(c) __delay_cycles(MasterClock/1000000*c)	// РњРёРєСЂРѕСЃРµРєСѓРЅРґРЅР°СЏ Р·Р°РґРµСЂР¶РєР°
+#define delay_ms(c) __delay_cycles(MasterClock/1000*c)		// РњРёР»Р»РёСЃРµРєСѓРЅРґРЅР°СЏ Р·Р°РґРµСЂР¶РєР°
 
 #endif
